@@ -40,6 +40,7 @@ const BoardInfoSchema = z.object({
   user_din: z.string().optional(),
   user_dout: z.string().optional(),
   board_manager_url: z.string().optional(),
+  core_version: z.string().optional(),
   extra_libraries: z.array(z.string()).optional(),
   define: z.string().or(z.array(z.string())).optional(),
   c_flags: z.array(z.string()).optional(),

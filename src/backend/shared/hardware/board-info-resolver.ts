@@ -54,6 +54,8 @@ export interface HalsBoardEntry {
    *  (filesystem path on editor; bundled-asset key on web). */
   source?: string
   board_manager_url?: string
+  /** Exact Arduino core version to install and build with, e.g. `'6.3.2'`. */
+  core_version?: string
   c_flags?: string[]
   cxx_flags?: string[]
   ld_flags?: string[]
@@ -285,6 +287,7 @@ export class BoardInfoResolver {
     if (entry.core) info.core = entry.core
     if (entry.platform) info.platform = entry.platform
     if (entry.board_manager_url) info.boardManagerUrl = entry.board_manager_url
+    if (entry.core_version) info.coreVersion = entry.core_version
     if (entry.source) info.halSourceFile = this.config.resolveHalSourcePath(entry.source)
     const flags = this.#collectFlags(entry.c_flags, entry.cxx_flags, entry.ld_flags)
     if (flags) info.compilerFlags = flags

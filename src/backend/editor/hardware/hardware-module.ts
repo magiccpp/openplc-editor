@@ -252,7 +252,7 @@ class HardwareModule {
           ...(boardData.platform ? { platform: boardData.platform } : {}),
           preview: boardData.preview,
           specs: boardData.specs,
-          coreVersion: coreVersion ?? undefined,
+          coreVersion: boardData.core_version ?? coreVersion ?? undefined,
           pins: {
             defaultAin:
               boardData.default_ain

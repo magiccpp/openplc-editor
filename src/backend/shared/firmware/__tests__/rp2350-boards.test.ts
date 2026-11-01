@@ -32,7 +32,22 @@ describe('built-in RP2350 boards', () => {
     expect(info.platform).toBe(platform)
     expect(info.define).toBe(define)
     expect(info.halSourceFile).toBe(join(HAL_DIR, 'rp2350pico.cpp'))
+    expect(info.coreVersion).toBe('6.3.2')
     expect(info.debug?.channels.map((c) => c.channel)).toEqual(['rtu'])
+  })
+
+  it('maps a hals.json core_version onto coreVersion and leaves it unset otherwise', () => {
+    const r = new BoardInfoResolver({
+      halsContent: {
+        Pinned: { compiler: 'arduino-cli', core: 'rp2040:rp2040', core_version: '6.3.2' },
+        Unpinned: { compiler: 'arduino-cli', core: 'rp2040:rp2040' },
+      },
+      packageManager: noPackages,
+      resolveHalSourcePath: (rel) => join(HAL_DIR, rel),
+      resolvePackageRelativePath: (pkg, rel) => join(pkg, rel),
+    })
+    expect(r.resolve('Pinned').coreVersion).toBe('6.3.2')
+    expect(r.resolve('Unpinned').coreVersion).toBeUndefined()
   })
 
   it('does not reuse a VPP device name, so hals.json cannot shadow the package boards', () => {

@@ -1082,7 +1082,7 @@ class CompilerModule {
 
     const coreRef = coreVersion ? `${boardCore}@${coreVersion}` : boardCore
     if (coreVersion) {
-      handleOutputData(`Installing pinned core ${coreRef} (required by a prebuilt library)...`, 'info')
+      handleOutputData(`Installing pinned core ${coreRef}...`, 'info')
     }
 
     // Refresh the platform index against the vendor URL before installing.
