@@ -149,5 +149,104 @@
         }
       ]
     }
+  },
+  "Raspberry Pico 2 (RP2350)": {
+    "board_manager_url": "https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json",
+    "compiler": "arduino-cli",
+    "core": "rp2040:rp2040",
+    "c_flags": [
+      "-MMD",
+      "-c",
+      "-Wno-incompatible-pointer-types"
+    ],
+    "default_ain": "26, 27, 28",
+    "default_aout": "4, 5",
+    "default_din": "6, 7, 8, 9, 10, 11, 12, 13",
+    "default_dout": "14, 15, 16, 17, 18, 19, 20, 21",
+    "extra_libraries": [],
+    "platform": "rp2040:rp2040:rpipico2",
+    "preview": "generic.png",
+    "source": "rp2350pico.cpp",
+    "specs": {
+      "CPU": "RP2350 ARM Cortex-M33 at 150MHz",
+      "RAM": "520 KB",
+      "Flash": "4 MB",
+      "Digital Pins": "26",
+      "Analog Pins": "3",
+      "PWM Pins": "16",
+      "WiFi": "No",
+      "Bluetooth": "No",
+      "Ethernet": "No"
+    },
+    "debug": {
+      "channels": [
+        {
+          "label": "Modbus RTU",
+          "channel": "rtu",
+          "params": {
+            "port": {
+              "$ref": "configuration.communicationPort",
+              "required": "No serial port selected. Pick a port in the Board Settings screen."
+            },
+            "baudRate": {
+              "$ref": "screens.serial.baud_rate",
+              "default": "115200",
+              "as": "number"
+            },
+            "slaveId": 1
+          }
+        }
+      ]
+    }
+  },
+  "Raspberry Pico 2 W (RP2350)": {
+    "board_manager_url": "https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json",
+    "compiler": "arduino-cli",
+    "core": "rp2040:rp2040",
+    "c_flags": [
+      "-MMD",
+      "-c",
+      "-Wno-incompatible-pointer-types"
+    ],
+    "default_ain": "26, 27, 28",
+    "default_aout": "4, 5",
+    "default_din": "6, 7, 8, 9, 10, 11, 12, 13",
+    "default_dout": "14, 15, 16, 17, 18, 19, 20, 21",
+    "define": "BOARD_PICOW",
+    "extra_libraries": [],
+    "platform": "rp2040:rp2040:rpipico2w",
+    "preview": "generic.png",
+    "source": "rp2350pico.cpp",
+    "specs": {
+      "CPU": "RP2350 ARM Cortex-M33 at 150MHz",
+      "RAM": "520 KB",
+      "Flash": "4 MB",
+      "Digital Pins": "26",
+      "Analog Pins": "3",
+      "PWM Pins": "16",
+      "WiFi": "Yes",
+      "Bluetooth": "No",
+      "Ethernet": "No"
+    },
+    "debug": {
+      "channels": [
+        {
+          "label": "Modbus RTU",
+          "channel": "rtu",
+          "params": {
+            "port": {
+              "$ref": "configuration.communicationPort",
+              "required": "No serial port selected. Pick a port in the Board Settings screen."
+            },
+            "baudRate": {
+              "$ref": "screens.serial.baud_rate",
+              "default": "115200",
+              "as": "number"
+            },
+            "slaveId": 1
+          }
+        }
+      ]
+    }
   }
 }
